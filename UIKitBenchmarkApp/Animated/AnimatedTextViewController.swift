@@ -10,6 +10,7 @@ import UIKit
 
 class AnimatedTextViewController: UIViewController {
     
+      var numberOfElements = 200
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,22 +37,28 @@ class AnimatedTextViewController: UIViewController {
         verticalStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 0).isActive = true
         
         
-        for r in 0..<30 {
+        let maxColumns = 20
+        let rows = (numberOfElements / maxColumns) + 1
+        
+        for r in 0..<rows {
             let stackView = UIStackView()
             stackView.axis = .horizontal
             stackView.spacing = 5
-            for c in 0..<20 {
+            var c = 0
+            while c < numberOfElements && c < maxColumns {
                 let label = UILabel()
                 label.text = "\(c)"
                 label.font = UIFont.systemFont(ofSize: 8)
                 
-                UIView.animate(withDuration: TimeInterval((Double(r) / 10.0)+1), delay: TimeInterval(Double(c) / 10.0), options: [.repeat, .autoreverse], animations: {
+                UIView.animate(withDuration: TimeInterval((Double(r) / 10.0)+1), delay: TimeInterval(Double(c) / 10.0), options: [.repeat, .autoreverse, .curveLinear], animations: {
                     label.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
                     label.transform = CGAffineTransform(rotationAngle: .pi)
                     label.alpha = 0
                 }, completion: nil)
                 stackView.addArrangedSubview(label)
+                c = c + 1
             }
+            numberOfElements = numberOfElements - c
             verticalStackView.addArrangedSubview(stackView)
         }
          

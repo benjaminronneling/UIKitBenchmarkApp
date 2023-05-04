@@ -10,20 +10,21 @@ import Foundation
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     // Create a vertical UIStackView and add the horizontal stack views as arranged subviews
     var verticalStackView: UIStackView!
-    var lotsOfTextButton: UIButton!
-    var lotsOfButtonsButton: UIButton!
-    var lotsOfImagesButton: UIButton!
-    var lotsOfBlurredViewsButton: UIButton!
+    var elementsCountTextField: UITextField!
+    var textsButton: UIButton!
+    var buttonsButton: UIButton!
+    var imagesButton: UIButton!
+    var blurredViewsButton: UIButton!
     var collectionViewButton: UIButton!
-    var animatedTextButton: UIButton!
+    var animatedTextsButton: UIButton!
     var animatedButtonsButton: UIButton!
     var animatedImagesButton: UIButton!
     var animatedBlurredViewsButton: UIButton!
-    var scrolledCollectionViewButton: UIButton!
+    var typicalAppButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,76 +51,81 @@ class ViewController: UIViewController {
         verticalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
         verticalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
         
-        lotsOfTextButton = createButton(title: "Texts")
-        lotsOfButtonsButton = createButton(title: "Buttons")
-        lotsOfImagesButton = createButton(title: "Images")
+        elementsCountTextField = createTextField(text: "")
+        textsButton = createButton(title: "Texts")
+        buttonsButton = createButton(title: "Buttons")
+        imagesButton = createButton(title: "Images")
         collectionViewButton = createButton(title: "Collection View")
-        lotsOfBlurredViewsButton = createButton(title: "Blur")
-        animatedTextButton = createButton(title: "Animation: text")
+        blurredViewsButton = createButton(title: "Blur")
+        animatedTextsButton = createButton(title: "Animation: text")
         animatedButtonsButton = createButton(title: "Animation: buttons")
         animatedImagesButton = createButton(title: "Animation: images")
         animatedBlurredViewsButton = createButton(title: "Animation: blur")
-        scrolledCollectionViewButton = createButton(title: "Animation: scroll")
+        typicalAppButton = createButton(title: "Typical App")
 
          
         
-        verticalStackView.addArrangedSubview(lotsOfTextButton)
-        verticalStackView.addArrangedSubview(lotsOfButtonsButton)
-        verticalStackView.addArrangedSubview(lotsOfImagesButton)
-        verticalStackView.addArrangedSubview(lotsOfBlurredViewsButton)
+        verticalStackView.addArrangedSubview(elementsCountTextField)
+        verticalStackView.addArrangedSubview(textsButton)
+        verticalStackView.addArrangedSubview(buttonsButton)
+        verticalStackView.addArrangedSubview(imagesButton)
+        verticalStackView.addArrangedSubview(blurredViewsButton)
         verticalStackView.addArrangedSubview(collectionViewButton)
         
-        verticalStackView.addArrangedSubview(animatedTextButton)
-        verticalStackView.addArrangedSubview(animatedButtonsButton)
-        verticalStackView.addArrangedSubview(animatedImagesButton)
-        verticalStackView.addArrangedSubview(animatedBlurredViewsButton)
-        verticalStackView.addArrangedSubview(scrolledCollectionViewButton)
+//        verticalStackView.addArrangedSubview(animatedTextsButton)
+//        verticalStackView.addArrangedSubview(animatedButtonsButton)
+//        verticalStackView.addArrangedSubview(animatedImagesButton)
+//        verticalStackView.addArrangedSubview(animatedBlurredViewsButton)
+        verticalStackView.addArrangedSubview(typicalAppButton)
         
         
-        lotsOfTextButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        lotsOfTextButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        elementsCountTextField.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+        elementsCountTextField.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        
+        textsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+        textsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
          
-        lotsOfButtonsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        lotsOfButtonsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        buttonsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+        buttonsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
         
-        lotsOfImagesButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        lotsOfImagesButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        imagesButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+        imagesButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
         
-        lotsOfBlurredViewsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        lotsOfBlurredViewsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        blurredViewsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+        blurredViewsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
         
         collectionViewButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
         collectionViewButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
         
-        animatedTextButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        animatedTextButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+//        animatedTextsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+//        animatedTextsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+//
+//
+//        animatedButtonsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+//        animatedButtonsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+//
+//
+//        animatedImagesButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+//        animatedImagesButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        
+//        animatedBlurredViewsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+//        animatedBlurredViewsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        
+        typicalAppButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
+        typicalAppButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
         
         
-        animatedButtonsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        animatedButtonsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
         
-        
-        animatedImagesButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        animatedImagesButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
-        
-        animatedBlurredViewsButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        animatedBlurredViewsButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
-        
-        scrolledCollectionViewButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        scrolledCollectionViewButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
-        
-        
-        
-        lotsOfTextButton.addTarget(self, action: #selector(showLotsOfTextViewController), for: .touchUpInside)
-        lotsOfButtonsButton.addTarget(self, action: #selector(showLotsOfButtonsViewController), for: .touchUpInside)
-        lotsOfImagesButton.addTarget(self, action: #selector(showLotsOfImagesViewController), for: .touchUpInside)
-        lotsOfBlurredViewsButton.addTarget(self, action: #selector(showBlurredViewsViewController), for: .touchUpInside)
+        textsButton.addTarget(self, action: #selector(showLotsOfTextViewController), for: .touchUpInside)
+        buttonsButton.addTarget(self, action: #selector(showLotsOfButtonsViewController), for: .touchUpInside)
+        imagesButton.addTarget(self, action: #selector(showLotsOfImagesViewController), for: .touchUpInside)
+        blurredViewsButton.addTarget(self, action: #selector(showBlurredViewsViewController), for: .touchUpInside)
         collectionViewButton.addTarget(self, action: #selector(showCollectionViewController), for: .touchUpInside)
-        animatedTextButton.addTarget(self, action: #selector(showAnimatedTextViewController), for: .touchUpInside)
+        animatedTextsButton.addTarget(self, action: #selector(showAnimatedTextViewController), for: .touchUpInside)
         animatedButtonsButton.addTarget(self, action: #selector(showAnimatedButtonsViewController), for: .touchUpInside)
         animatedImagesButton.addTarget(self, action: #selector(showAnimatedImagesViewController), for: .touchUpInside)
         animatedBlurredViewsButton.addTarget(self, action: #selector(showAnimatedBlurredViewsViewController), for: .touchUpInside)
-        scrolledCollectionViewButton.addTarget(self, action: #selector(showCollectionViewController), for: .touchUpInside)
+        typicalAppButton.addTarget(self, action: #selector(showTypicalAppViewController), for: .touchUpInside)
         
         
     }
@@ -137,63 +143,105 @@ class ViewController: UIViewController {
         return button
     }
     
+    func createTextField(text: String) -> UITextField {
+        
+        
+        let textField = UITextField()
+        
+        textField.text = text
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = .white.withAlphaComponent(0.2)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        textField.placeholder = "Enter number of elements"
+        textField.textAlignment = .center // This line centers the text inside the text field.
+        textField.delegate = self // Set the view controller as the text field's delegate
+        
+        
+        return textField
+    }
+    // UITextFieldDelegate method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits // Only accept decimal digits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet) // Return true if the input is a number
+    }
+
     
     @objc func showLotsOfTextViewController() {
         let lotsOfTextViewController = TextViewController()
+        lotsOfTextViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(lotsOfTextViewController, animated: true)
     }
     
     
     @objc func showLotsOfButtonsViewController() {
-        print("clicked")
         let lotsOfButtonsViewController = ButtonsViewController()
+        lotsOfButtonsViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(lotsOfButtonsViewController, animated: true)
     }
     
     
     @objc func showLotsOfImagesViewController() {
         let lotsOfImagesViewController = ImagesViewController()
+        lotsOfImagesViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(lotsOfImagesViewController, animated: true)
     }
     
     @objc func showBlurredViewsViewController() {
-//        let blurredViewsViewController = BlurViewController()
         
             let blurredViewsViewController = BlurViewController()
+        blurredViewsViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(blurredViewsViewController, animated: true)
     }
     
     @objc func showCollectionViewController() {
         let collectionViewController = CollectionViewController()
+        collectionViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(collectionViewController, animated: true)
         
     }
     
     @objc func showAnimatedTextViewController() {
         let animatedTextViewController = AnimatedTextViewController()
+        animatedTextViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(animatedTextViewController, animated: true)
         
     }
     
     @objc func showAnimatedButtonsViewController() {
         let animatedButtonsViewController = AnimatedButtonsViewController()
+        animatedButtonsViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(animatedButtonsViewController, animated: true)
         
     }
     
     @objc func showAnimatedImagesViewController() {
-        let animatedImagesViewController = AnimatedImagesViewController()
+        let animatedImagesViewController = AnimatedImages2ViewController()
+        animatedImagesViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(animatedImagesViewController, animated: true)
         
     }
     
     @objc func showAnimatedBlurredViewsViewController() {
         let animatedBlurredViewsViewController = AnimatedBlurredViewsViewController()
+        animatedBlurredViewsViewController.numberOfElements = Int(elementsCountTextField.text ?? "1") ?? 1
         self.navigationController?.pushViewController(animatedBlurredViewsViewController, animated: true)
         
     }
      
     
+    @objc func showTypicalAppViewController() {
+        let profileViewController = TypicalAppViewController()
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
+    }
+
 }
 
 

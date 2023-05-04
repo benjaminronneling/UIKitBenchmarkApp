@@ -9,6 +9,7 @@ import UIKit
 
 class TextViewController: UIViewController {
   
+    var numberOfElements = 200
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,9 +19,7 @@ class TextViewController: UIViewController {
      
     func setupUI() {
          
-        view.backgroundColor = .systemGreen
-        
-        
+        view.backgroundColor = .systemGreen 
         // Create a vertical UIStackView and add the horizontal stack views as arranged subviews
         let verticalStackView = UIStackView()
 
@@ -39,18 +38,21 @@ class TextViewController: UIViewController {
         verticalStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0).isActive = true
         verticalStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 0).isActive = true
         
-        
-        
-        for _ in 0..<80 {
+        let maxColumns = 50
+        let rows = (numberOfElements / maxColumns) + 1
+        for _ in 0..<rows {
             let stackView = UIStackView()
             stackView.axis = .horizontal
             stackView.spacing = 0
-            for c in 0..<50 {
+            var c = 0
+            while c < numberOfElements && c < maxColumns {
                 let label = UILabel()
                 label.text = "\(c)"
                 label.font = UIFont.systemFont(ofSize: 6)
                 stackView.addArrangedSubview(label)
+                c = c + 1
             }
+            numberOfElements = numberOfElements - c
             verticalStackView.addArrangedSubview(stackView)
         }
         

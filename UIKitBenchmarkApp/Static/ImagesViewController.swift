@@ -8,7 +8,8 @@
 import UIKit
 
 class ImagesViewController: UIViewController {
-
+    
+    var numberOfElements = 20
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -37,19 +38,25 @@ class ImagesViewController: UIViewController {
        verticalStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0).isActive = true
        verticalStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 0).isActive = true
        
+       let maxColumns = 20
+       let rows = (numberOfElements / maxColumns) + 1
        
        
-       for _ in 0..<50 {
+       for _ in 0..<rows {
            let stackView = UIStackView()
            stackView.axis = .horizontal
            stackView.spacing = 0
-           for c in 0..<40 {
+           var c = 0
+           while c < numberOfElements && c < maxColumns {
                let uiImageView = UIImageView(image: UIImage(named: "image\(c%10)"))
                uiImageView.translatesAutoresizingMaskIntoConstraints = false
-               uiImageView.widthAnchor.constraint(equalToConstant: 8).isActive = true
-               uiImageView.heightAnchor.constraint(equalToConstant: 8).isActive = true
+               uiImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
+               uiImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
                stackView.addArrangedSubview(uiImageView)
+               c = c + 1
            }
+           
+           numberOfElements = numberOfElements - c
            verticalStackView.addArrangedSubview(stackView)
        }
         

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52BA689929BDCDDD002C3FCF /* AnimatedImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA689829BDCDDD002C3FCF /* AnimatedImagesViewController.swift */; };
+		5287CB0F29DB2E1E0033B2C8 /* AnimatedImages2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CB0E29DB2E1E0033B2C8 /* AnimatedImages2ViewController.swift */; };
+		5287CB1329DB51AD0033B2C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CB1229DB51AC0033B2C8 /* Profile.swift */; };
+		5287CB1529DB530C0033B2C8 /* TypicalAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287CB1429DB530C0033B2C8 /* TypicalAppViewController.swift */; };
 		52BA689B29BDCE01002C3FCF /* AnimatedBlurredViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA689A29BDCE01002C3FCF /* AnimatedBlurredViewsViewController.swift */; };
 		52BA689D29BDCE2E002C3FCF /* UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA689C29BDCE2E002C3FCF /* UIKitTests.swift */; };
 		52BB4E9029BB730A009D688F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB4E8F29BB730A009D688F /* AppDelegate.swift */; };
@@ -47,7 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		52BA689829BDCDDD002C3FCF /* AnimatedImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImagesViewController.swift; sourceTree = "<group>"; };
+		5287CB0E29DB2E1E0033B2C8 /* AnimatedImages2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImages2ViewController.swift; sourceTree = "<group>"; };
+		5287CB1229DB51AC0033B2C8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		5287CB1429DB530C0033B2C8 /* TypicalAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypicalAppViewController.swift; sourceTree = "<group>"; };
 		52BA689A29BDCE01002C3FCF /* AnimatedBlurredViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedBlurredViewsViewController.swift; sourceTree = "<group>"; };
 		52BA689C29BDCE2E002C3FCF /* UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTests.swift; sourceTree = "<group>"; };
 		52BB4E8C29BB730A009D688F /* UIKitBenchmarkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitBenchmarkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +133,7 @@
 				52BB4E9829BB730C009D688F /* Assets.xcassets */,
 				52BB4E9A29BB730C009D688F /* LaunchScreen.storyboard */,
 				52BB4E9D29BB730C009D688F /* Info.plist */,
+				5287CB1229DB51AC0033B2C8 /* Profile.swift */,
 			);
 			path = UIKitBenchmarkApp;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				52BB4EC529BB76C0009D688F /* ImagesViewController.swift */,
 				52BB4EC729BB76DC009D688F /* BlurViewController.swift */,
 				52BB4EC929BB76EF009D688F /* CollectionView */,
+				5287CB1429DB530C0033B2C8 /* TypicalAppViewController.swift */,
 			);
 			path = Static;
 			sourceTree = "<group>";
@@ -168,8 +174,8 @@
 			children = (
 				52BB4ED029BB7768009D688F /* AnimatedTextViewController.swift */,
 				52BB4ED229BB777B009D688F /* AnimatedButtonsViewController.swift */,
-				52BA689829BDCDDD002C3FCF /* AnimatedImagesViewController.swift */,
 				52BA689A29BDCE01002C3FCF /* AnimatedBlurredViewsViewController.swift */,
+				5287CB0E29DB2E1E0033B2C8 /* AnimatedImages2ViewController.swift */,
 			);
 			path = Animated;
 			sourceTree = "<group>";
@@ -315,19 +321,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				52BB4EC829BB76DC009D688F /* BlurViewController.swift in Sources */,
+				5287CB1329DB51AD0033B2C8 /* Profile.swift in Sources */,
 				52BB4EC629BB76C0009D688F /* ImagesViewController.swift in Sources */,
 				52BB4ECD29BB772D009D688F /* DeckCollectionViewCell.swift in Sources */,
 				52BB4ED329BB777B009D688F /* AnimatedButtonsViewController.swift in Sources */,
 				52BB4E9429BB730A009D688F /* ViewController.swift in Sources */,
 				52BA689B29BDCE01002C3FCF /* AnimatedBlurredViewsViewController.swift in Sources */,
 				52BB4E9029BB730A009D688F /* AppDelegate.swift in Sources */,
+				5287CB1529DB530C0033B2C8 /* TypicalAppViewController.swift in Sources */,
 				52BB4ED129BB7768009D688F /* AnimatedTextViewController.swift in Sources */,
-				52BA689929BDCDDD002C3FCF /* AnimatedImagesViewController.swift in Sources */,
 				52BB4ECB29BB7710009D688F /* CollectionViewController.swift in Sources */,
 				52BB4EC429BB7695009D688F /* ButtonsViewController.swift in Sources */,
 				52BB4E9229BB730A009D688F /* SceneDelegate.swift in Sources */,
 				52BB4ECF29BB7744009D688F /* CardCollectionViewCell.swift in Sources */,
 				52BB4EC229BB758D009D688F /* TextViewController.swift in Sources */,
+				5287CB0F29DB2E1E0033B2C8 /* AnimatedImages2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -480,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -498,6 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZ58ABZJC9;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKitBenchmarkApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -525,6 +534,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZ58ABZJC9;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKitBenchmarkApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -553,7 +564,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZ58ABZJC9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rabbheat.UIKitBenchmarkAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -573,7 +584,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZ58ABZJC9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rabbheat.UIKitBenchmarkAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

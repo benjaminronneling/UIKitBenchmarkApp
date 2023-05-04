@@ -5,6 +5,7 @@ class BlurViewController: UIViewController {
     let backgroundImageView = UIImageView()
     let verticalStackView = UIStackView()
     
+    var numberOfElements = 200
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +40,11 @@ class BlurViewController: UIViewController {
             
         ])
         
+        let maxColumns = 10
+        let rows = (numberOfElements / maxColumns) + 1
+        
         // adding blurry views to the stack
-        for _ in 0..<50 {
+        for _ in 0..<rows {
             let rowStackView = UIStackView()
             rowStackView.axis = .horizontal
             rowStackView.alignment = .fill
@@ -48,12 +52,16 @@ class BlurViewController: UIViewController {
             rowStackView.spacing = 2
             verticalStackView.addArrangedSubview(rowStackView)
             
-            for _ in 0..<10 {
-                let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial) //is .systemUltraThinMaterial equivalent to .ultraThinMaterial in SwiftUI? The blur colors are different when the application launches
+            var c = 0
+            while c < numberOfElements && c < maxColumns {
+                let blurEffect = UIBlurEffect(style: .dark) //is .systemUltraThinMaterial equivalent to .ultraThinMaterial in SwiftUI? The blur colors are different when the application launches
                 let blurView = UIVisualEffectView(effect: blurEffect)
                 blurView.clipsToBounds = true
                 rowStackView.addArrangedSubview(blurView)
+                c = c + 1
             }
+            
+            numberOfElements = numberOfElements - c
         }
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    var numberOfElements = 1
     var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -43,7 +44,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
      }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+//        numberOfElements here is actually the number of rows
+        return numberOfElements * 2
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeckCollectionViewCell", for: indexPath) as! DeckCollectionViewCell

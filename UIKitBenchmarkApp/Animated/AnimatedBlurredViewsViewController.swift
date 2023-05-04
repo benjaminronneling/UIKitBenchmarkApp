@@ -11,6 +11,7 @@ class AnimatedBlurredViewsViewController: UIViewController {
     let backgroundImageView = UIImageView()
     let verticalStackView = UIStackView()
     
+    var numberOfElements = 20
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +50,9 @@ class AnimatedBlurredViewsViewController: UIViewController {
     }
     
     private func addRowsToStackView() {
-        for r in 0..<15 {
+        let maxColumns = 10
+        let rows = (numberOfElements / maxColumns) + 1
+        for r in 0..<rows {
             let rowStackView = UIStackView()
             rowStackView.axis = .horizontal
             rowStackView.alignment = .fill
@@ -57,18 +60,23 @@ class AnimatedBlurredViewsViewController: UIViewController {
             rowStackView.spacing = 2
             verticalStackView.addArrangedSubview(rowStackView)
             
-            for c in 0..<10 {
+            
+            var c = 0
+            while c < numberOfElements && c < maxColumns {
                 let blurEffect = UIBlurEffect(style: .dark)
                 let blurView = UIVisualEffectView(effect: blurEffect)
                 blurView.clipsToBounds = true
                 
-              UIView.animate(withDuration: TimeInterval((Double(r) / 10.0)+1), delay: TimeInterval(Double(c) / 10.0), options: [.repeat, .autoreverse], animations: {
+              UIView.animate(withDuration: TimeInterval((Double(r) / 10.0)+1), delay: TimeInterval(Double(c) / 10.0), options: [.repeat, .autoreverse, .curveLinear], animations: {
                   blurView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                   blurView.transform = CGAffineTransform(rotationAngle: .pi)
                   blurView.alpha = 0
               }, completion: nil)
                 rowStackView.addArrangedSubview(blurView)
+                c = c + 1
             }
+            
+            numberOfElements = numberOfElements - c
         }
     }
 }

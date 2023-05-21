@@ -1,0 +1,50 @@
+% \documentclass{article}
+% \usepackage{pgfplots}
+% \usepackage{pgfplotstable} % For reading data
+% \usepackage{filecontents}
+
+\pgfplotsset{compat=1.17} % Use the appropriate version of pgfplots
+
+% Read the data.csv file
+\pgfplotstableread[col sep=comma]{data/Table-iphone-12.pro.max-16.3.csv}\datatable
+
+% Get the first entry from the first column of the data.csv file
+\pgfplotstablegetelem{0}{DeviceName}\of\datatable
+\edef\plotTitle{\pgfplotsretval}
+
+% \begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    title=Plot of scenario \textbf{Buttons} on \textbf{\plotTitle}, % Set the title to the table name read from the CSV file
+    xlabel=Number of Components,
+    ylabel=Memory Usage (kB),
+    legend pos=north west,
+    ymajorgrids=true,
+    ymin=0,
+    grid style=dashed,
+    xmode=log, % Enable logarithmic scale for x-axis
+    log basis x=2, % Set the base of the logarithm to 2
+    xtick=data, % Use data from the file for xticks
+    xticklabels from table={\datatable}{NumberOfComponents}, % Read xtick labels from the data file
+    xticklabel style={rotate=45, anchor=north east}, % Rotate x-axis labels 45 degrees
+    yticklabel style={
+            /pgf/number format/fixed,
+            /pgf/number format/precision=5
+    },
+    scaled y ticks=false,
+    %nodes near coords, % Display plot values near the data points
+    %point meta=explicit, % Use explicit point meta data for the values
+    %every node near coord/.append style={font=\tiny, yshift=2pt, xshift=2pt}, % Customize the style of the nodes
+]
+
+\addplot table [x=NumberOfComponents, y=ButtonsMemory(UIKit), col sep=comma, meta=ButtonsMemory(UIKit)] {\datatable};
+\addlegendentry{UIKit}
+
+\addplot table [x=NumberOfComponents, y=ButtonsMemory(SwiftUI), col sep=comma, meta=ButtonsMemory(SwiftUI)] {\datatable};
+\addlegendentry{SwiftUI}
+
+\end{axis}
+\end{tikzpicture}
+
+% \end{document}

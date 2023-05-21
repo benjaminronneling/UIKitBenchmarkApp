@@ -53,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		5235AA072A1A0643001F54DA /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		5235AA0B2A1A08C5001F54DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5287CB0E29DB2E1E0033B2C8 /* AnimatedImages2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImages2ViewController.swift; sourceTree = "<group>"; };
 		5287CB1229DB51AC0033B2C8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		5287CB1429DB530C0033B2C8 /* TypicalAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypicalAppViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		52BB4E8329BB730A009D688F = {
 			isa = PBXGroup;
 			children = (
+				5235AA0B2A1A08C5001F54DA /* README.md */,
 				5235AA072A1A0643001F54DA /* data */,
 				52BB4E8E29BB730A009D688F /* UIKitBenchmarkApp */,
 				52BB4EA529BB730D009D688F /* UIKitBenchmarkAppTests */,

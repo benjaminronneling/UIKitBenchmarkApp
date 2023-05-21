@@ -1,4 +1,4 @@
-# Benchmarking UIKit App: A UIKit Implementation
+# 🟢 Benchmarking UIKit App: A UIKit Implementation
 This repository holds the codebase for the UIKit version of the apps that were designed and developed during my Master's thesis project for the purpose of benchmarking UI frameworks in iOS. The comprehensive research report can be accessed from this link [Diva link to be updated soon].
 
 # Execution Guide
